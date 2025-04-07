@@ -11,112 +11,67 @@
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap"
         rel="stylesheet">
 
-    <style>
-        body {
-            background-color: rgb(22, 24, 33);
-        }
-
-        @keyframes fadeIn {
-            0% {
-                opacity: 0;
-                display: none;
-            }
-
-            100% {
-                opacity: 1;
-                display: block;
-            }
-        }
-
-        @keyframes angleSpin {
-            0% {
-                --gradient-angle: 0deg;
-            }
-
-            100% {
-                --gradient-angle: 360deg;
-            }
-        }
-
-        :root {
-            --bs-body-font-family: 'JetBrains Mono', monospace;
-            --bs-dark-rgb: 24, 30, 45;
-            --bs-dark-bg-subtle: rgb(35, 44, 66);
-        }
-
-        a i {
-            transition: all 0.1s ease-in-out;
-        }
-
-        @property --gradient-angle {
-            syntax: "<angle>";
-            inherits: false;
-            initial-value: 0deg;
-        }
-
-        .custom-border::after {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            translate: -50% -50%;
-            width: 100%;
-            height: 100%;
-            background-image: conic-gradient(from var(--gradient-angle), transparent 70%, rgb(var(--bs-primary-rgb)));
-            z-index: -1;
-            box-sizing: content-box;
-            padding: 1px;
-            border-radius: var(--bs-border-radius);
-            animation: angleSpin 3s linear infinite;
-        }
-
-
-        @keyframes scroll {
-            0% {
-                transform: translateX(0);
-            }
-
-            100% {
-                transform: translateX(calc(-50% - 1rem));
-            }
-        }
-
-
-        .custom-marquee {
-            display: flex;
-            overflow: hidden;
-            gap: 1rem;
-            position: relative;
-        }
-
-        .custom-marquee #inner {
-            display: flex;
-            flex-shrink: 0;
-            justify-content: space-around;
-            min-width: 100%;
-            gap: 2rem;
-            
-            animation: scroll 10s linear infinite;
-        }
-
-        .custom-marquee img {
-            height: 50px;
-        }
-    </style>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    <script src="functions.js"></script>
 </head>
 
 <body>
     <header class="d-flex justify-content-center">
         <nav class="container-sm navbar navbar-expand-lg navbar-dark bg-dark rounded my-3 mx-3 p-0 overflow-hidden shadow border-1 border-primary"
             style="flex-wrap: nowrap; border: solid;">
-            <button class="p-0 bg-dark-subtle border-0" style="height: 100%; aspect-ratio: 1;">
+
+            <!-- Left Sidebar -->
+            <div id="left-sidebar" class="position-fixed top-0 start-0 bg-dark text-white vh-100 p-3">
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <h4 class="m-0">Social Links</h4>
+                    <button class="btn btn-close btn-close-white" id="close-left-sidebar"></button>
+                </div>
+
+                <div class="d-flex flex-column gap-3">
+                    <a href="https://twitter.com/@iiSupremeGuy" target="_blank" class="text-decoration-none">
+                        <i class="bi bi-twitter fs-4 me-2"></i>Twitter
+                    </a>
+                    <a href="https://www.youtube.com/@RobloxPh4ntomX" target="_blank" class="text-decoration-none">
+                        <i class="bi bi-youtube fs-4 me-2"></i>YouTube
+                    </a>
+                    <a href="https://github.com/Ph4ntomX" target="_blank" class="text-decoration-none">
+                        <i class="bi bi-github fs-4 me-2"></i>GitHub
+                    </a>
+                </div>
+            </div>
+
+            <!-- Right Sidebar -->
+            <div id="right-sidebar" class="position-fixed top-0 end-0 bg-dark text-white vh-100 p-3">
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <h4 class="m-0">Navigation</h4>
+                    <button class="btn btn-close btn-close-white" id="close-right-sidebar"></button>
+                </div>
+
+                <ul class="nav flex-column gap-2">
+                    <li><a href="#about" class="nav-link">About</a></li>
+                    <li><a href="#academics" class="nav-link">Academics</a></li>
+                    <li><a href="#statistics" class="nav-link">Statistics</a></li>
+                    <li><a href="#skills" class="nav-link">Skills</a></li>
+                    <li><a href="#experience" class="nav-link">Experience</a></li>
+                    <li><a href="#portfolio" class="nav-link">Portfolio</a></li>
+                    <li><a href="#contacts" class="nav-link">Contacts</a></li>
+                </ul>
+            </div>
+            
+            <button class="p-0 bg-dark-subtle border-0" id="show-left-sidebar" style="height: 100%; aspect-ratio: 1;">
                 <i class="bi bi-justify-left fs-1 text-white"></i>
             </button>
+
             <div class="w-100 d-flex justify-content-between align-items-center p-3">
 
                 <a class="navbar-brand fw-bold" href="#">tengkuhamza.com</a>
@@ -124,16 +79,16 @@
                 <div class="collapse navbar-collapse justify-content-center py-2" id="navbarNav">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link" href="#">About</a>
+                            <a class="nav-link" href="#about">About</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Experience</a>
+                            <a class="nav-link" href="#experience">Experience</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Projects</a>
+                            <a class="nav-link" href="#skills">Skills</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Contact</a>
+                            <a class="nav-link" href="#contacts">Contacts</a>
                         </li>
                     </ul>
                 </div>
@@ -147,73 +102,529 @@
                             class="bi bi-github fs-4 link-light link-opacity-50-hover"></i></a>
                 </div>
 
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <button class="navbar-toggler" id="show-right-sidebar">
                     <span class="navbar-toggler-icon"></span>
                 </button>
             </div>
-            <button class="p-0 bg-dark-subtle border-0 d-none d-lg-block"
-                style="height: 100%; aspect-ratio: 1;"></button>
+
+            <button class="p-0 bg-dark-subtle border-0 d-none d-lg-block" id="dark-light-switch" style="height: 100%; aspect-ratio: 1;">
+                <i class="bi bi-moon fs-1 text-white"></i>
+            </button>
         </nav>
     </header>
 
-    <section id="about" class="d-flex justify-content-center">
-        <div class="custom-border container-sm row bg-dark rounded position-relative">
-            <div class="col-12 col-md-5 d-flex justify-content-center align-items-center p-5">
-                <img src="https://placehold.co/150" alt="Profile Picture" class="rounded-circle img-fluid w-100">
+    <section id="about" class="d-flex justify-content-center p-3 ">
+
+        <div class="custom-border container-sm bg-dark rounded position-relative">
+
+            <div class="row g-4 z-2">
+                <div class="col-12 col-md-5 d-flex justify-content-center align-items-center p-5 z-3">
+                    <img src="https://placehold.co/150" alt="picture of me" class="rounded-circle img-fluid w-100 hover-scale">
+                </div>
+
+                <div class="col-12 col-md-7 d-flex flex-column justify-content-center text-white p-3 z-3">
+                    <div class="d-flex gap-2 text-secondary">
+                        <i class="bi bi-geo-fill fs-5"></i>
+
+                        <div>
+                            <h4 class="d-inline-block typewriter h-100">Penang, Malaysia</h4>
+                        </div>
+                    </div>
+
+                    <h1 class="text-white"><span class="text-primary">Software</span> Engineer & <span class="text-primary">Game</span> Developer</h1>
+                    <p class="fs-5">
+                        My name is Tengku Hamza and I specialize in creating
+                        <b>full-stack software</b>
+                        with frameworks like
+                        <b>SvelteKit and Flutter</b>,
+                        and creating games with <b>Roblox and Scratch</b>.
+                        I have over <b>6 years of experience</b>
+                        in this field.
+                    </p>
+
+                    <p class="text-secondary fw-medium">Using different <span class="text-white">programming languages &
+                            libraries</span></p>
+                    <div class="d-flex custom-marquee">
+                        <div id="inner">
+                            <img src="cool-images/html-5.svg" alt="HTML">
+                            <img src="cool-images/css-3.svg" alt="CSS">
+                            <img src="cool-images/javascript.svg" alt="JavaScript">
+                            <img src="cool-images/typescript-icon.svg" alt="TypeScript">
+                            <img src="cool-images/nodejs.svg" alt="NodeJS">
+                            <img src="cool-images/tailwindcss-icon.svg" alt="Tailwind">
+                            <img src="cool-images/bootstrap.svg" alt="Bootstrap">
+                            <img src="cool-images/daisyUI.svg" alt="Daisy UI">
+                            <img src="cool-images/flutter.svg" alt="Flutter">
+                            <img src="cool-images/dart.svg" alt="Dart">
+                            <img src="cool-images/svelte-icon.svg" alt="Svelte">
+                            <img src="cool-images/supabase-icon.svg" alt="Supabase">
+                            <img src="cool-images/postgresql.svg" alt="Postgres">
+                            <img src="cool-images/deno.svg" alt="Deno">
+                            <img src="cool-images/java.svg" alt="Java">
+                            <img src="cool-images/lua.svg" alt="Lua">
+                            <img src="cool-images/visual-studio-code.svg" alt="Visual Studio Code">
+
+                            <img src="cool-images/html-5.svg" alt="HTML">
+                            <img src="cool-images/css-3.svg" alt="CSS">
+                            <img src="cool-images/javascript.svg" alt="JavaScript">
+                            <img src="cool-images/typescript-icon.svg" alt="TypeScript">
+                            <img src="cool-images/nodejs.svg" alt="NodeJS">
+                            <img src="cool-images/tailwindcss-icon.svg" alt="Tailwind">
+                            <img src="cool-images/bootstrap.svg" alt="Bootstrap">
+                            <img src="cool-images/daisyUI.svg" alt="Daisy UI">
+                            <img src="cool-images/flutter.svg" alt="Flutter">
+                            <img src="cool-images/dart.svg" alt="Dart">
+                            <img src="cool-images/svelte-icon.svg" alt="Svelte">
+                            <img src="cool-images/supabase-icon.svg" alt="Supabase">
+                            <img src="cool-images/postgresql.svg" alt="Postgres">
+                            <img src="cool-images/deno.svg" alt="Deno">
+                            <img src="cool-images/java.svg" alt="Java">
+                            <img src="cool-images/lua.svg" alt="Lua">
+                            <img src="cool-images/visual-studio-code.svg" alt="Visual Studio Code">
+                        </div>
+                    </div>
+
+                    <a href="#academics" class="d-flex align-items-center gap-2 mt-5 text-decoration-none">
+                        <i class="bi bi-caret-down-fill fs-5 text-primary"></i>
+                        <p class="fs-5 m-0 text-info">Check out more</p>
+                    </a>
+                </div>
             </div>
+        </div>
+    </section>
 
-            <div class="col-12 col-md-7 d-flex flex-column justify-content-center text-white">
-                <h3 class="text-secondary"><i class="bi bi-geo-fill"></i> Penang, Malaysia</h3>
-                <h1 class="text-white"><span class="text-primary">Software</span> Engineer & Roblox <span
-                        class="text-primary">Game</span> Developer</h1>
-                <p class="fs-5">My name is Tengku Hamza and I specialize in creating <b>full-stack software</b> with
-                    frameworks like <b>SvelteKit and Flutter</b>, and creating <b>games with Roblox</b>. I have over
-                    <b>6 years of experience</b> in this field.
-                </p>
+    <section id="academics" class="p-3">
+        <div class="container-sm p-3 bg-dark rounded scroll-animate border-1 border-secondary" style="border: solid">
+            <h2 class="text-center text-white">Academics</h2>
+            <p class="text-secondary text-center">These are the details of my <span class="text-white">most recent
+                    academics.</span></p>
 
-                <p class="text-secondary fw-medium">Using different programming languages & libraries</p>
-                <div class="d-flex custom-marquee">
-                    <div id="inner">
-                        <img src="cool-images/html-5.svg" alt="HTML">
-                        <img src="cool-images/css-3.svg" alt="CSS">
-                        <img src="cool-images/javascript.svg" alt="JavaScript">
-                        <img src="cool-images/typescript-icon.svg" alt="TypeScript">
-                        <img src="cool-images/nodejs.svg" alt="NodeJS">
-                        <img src="cool-images/tailwindcss-icon.svg" alt="Tailwind">
-                        <img src="cool-images/bootstrap.svg" alt="Bootstrap">
-                        <img src="cool-images/daisyUI.svg" alt="Daisy UI">
-                        <img src="cool-images/flutter.svg" alt="Flutter">
-                        <img src="cool-images/dart.svg" alt="Dart">
-                        <img src="cool-images/svelte-icon.svg" alt="Svelte">
-                        <img src="cool-images/supabase-icon.svg" alt="Supabase">
-                        <img src="cool-images/postgresql.svg" alt="Postgres">
-                        <img src="cool-images/deno.svg" alt="Deno">
-                        <img src="cool-images/java.svg" alt="Java">
-                        <img src="cool-images/lua.svg" alt="Lua">
-                        <img src="cool-images/visual-studio-code.svg" alt="Visual Studio Code">
+            <ul class="nav nav-tabs border-0 gap-2 justify-content-center" id="academicsTab" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link active button1-custom" id="imas-tab" data-bs-toggle="tab"
+                        data-bs-target="#imas-tab-pane" type="button" role="tab" aria-controls="imas-tab-pane"
+                        aria-selected="true">IMAS</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link button1-custom" id="permata-tab" data-bs-toggle="tab"
+                        data-bs-target="#permata-tab-pane" type="button" role="tab" aria-controls="permata-tab-pane"
+                        aria-selected="false">KPPN</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link button1-custom" id="forward-tab" data-bs-toggle="tab"
+                        data-bs-target="#forward-tab-pane" type="button" role="tab" aria-controls="forward-tab-pane"
+                        aria-selected="false">FC</button>
+                </li>
+            </ul>
+            <div class="tab-content pt-4 px-2 px-lg-5 text-white d-flex flex-column" id="academicsTabContent"
+                style="min-height: 1px;">
+                <div class="tab-pane fade active show w-100" id="imas-tab-pane" role="tabpanel"
+                    aria-labelledby="imas-tab" tabindex="0">
+                    <h3 class="text-primary">International Modern Arabic School: 2017 - 2020</h3>
+                    <p class="text-secondary">IMAS is the first and biggest International school in Malaysia to use both
+                        Arabic and English as the language. The school adopts a British curriculum, which gives students
+                        the opportunity to obtain the International General Certificate of Secondary Education (IGCSE).
+                    </p>
+                    <p class="fs-5">I earned a few awards during my time at IMAS, while simultaneously getting very good
+                        results for my studies.</p>
+                    <ul class="text-start">
+                        <li>Spelling Bee Champion (2020)</li>
+                        <li>Straight A for my studies (2017 - 2020)</li>
+                    </ul>
+                </div>
+                <div class="tab-pane fade w-100" id="permata-tab-pane" role="tabpanel" aria-labelledby="permata-tab"
+                    tabindex="0">
+                    <h3 class="text-primary">Kolej Permata@Pintar Negara: 2022 - Present</h3>
+                    <p class="text-secondary">Kolej Permata@Pintar Negara, Universiti Kebangsaan Malaysia (KPPN UKM) is
+                        the first special program in Malaysia for students with high natural intellectual potential.</p>
+                    <p class="fs-5">I am currently studying in Permata@Pintar. I have earned many awards here and I am
+                        considered a top student.</p>
+                    <ul class="text-start">
+                        <li>A consistent 3.71 CGPA across 3 years of studies</li>
+                        <li>Best Student in Technopreneurship Award (2024)</li>
+                        <li>Won Students' Favorite award for my final project (Synco Virtue)</li>
+                        <li>Silver Award at SEACSO International (2024)</li>
+                        <li>3-Time Coolest Projects Malaysia Finalist (2022, 2023, 2024)</li>
+                        <li>Bronze Award for my website at Coolest Projects Malaysia 2024 (endangeredanimals.my)</li>
+                        <li>First place in MDEC Coding Olympics</li>
+                    </ul>
+                </div>
+                <div class="tab-pane fade w-100" id="forward-tab-pane" role="tabpanel" aria-labelledby="forward-tab"
+                    tabindex="0">
+                    <h3 class="text-primary">Forward College: 2025 - Present</h3>
+                    <p class="text-secondary">Forward College is a technology and future skills college based in Penang,
+                        Malaysia that will equip aspiring software and tech professionals with industry-ready skills
+                        required for a fast-moving world.</p>
+                    <p class="fs-5">I am also currently studying in Forward College, starting in March 2025.</p>
+                    <ul class="text-start">
+                        <li>Passed and got an above-average mark on the Forward College aptitude test.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
 
-                        <img src="cool-images/html-5.svg" alt="HTML">
-                        <img src="cool-images/css-3.svg" alt="CSS">
-                        <img src="cool-images/javascript.svg" alt="JavaScript">
-                        <img src="cool-images/typescript-icon.svg" alt="TypeScript">
-                        <img src="cool-images/nodejs.svg" alt="NodeJS">
-                        <img src="cool-images/tailwindcss-icon.svg" alt="Tailwind">
-                        <img src="cool-images/bootstrap.svg" alt="Bootstrap">
-                        <img src="cool-images/daisyUI.svg" alt="Daisy UI">
-                        <img src="cool-images/flutter.svg" alt="Flutter">
-                        <img src="cool-images/dart.svg" alt="Dart">
-                        <img src="cool-images/svelte-icon.svg" alt="Svelte">
-                        <img src="cool-images/supabase-icon.svg" alt="Supabase">
-                        <img src="cool-images/postgresql.svg" alt="Postgres">
-                        <img src="cool-images/deno.svg" alt="Deno">
-                        <img src="cool-images/java.svg" alt="Java">
-                        <img src="cool-images/lua.svg" alt="Lua">
-                        <img src="cool-images/visual-studio-code.svg" alt="Visual Studio Code">
+    <section id="statistics" class="p-3 animate">
+        <div class="container-sm p-5 bg-dark rounded scroll-animate border-1 border-secondary" style="border: solid">
+            <div class="row g-4">
+                <div class="col-12 col-md-6 col-lg-3 text-white">
+                    <i class="bi bi-award-fill fs-2 text-primary"></i>
+                    <h1>6<span class="text-secondary">+</span></h1>
+                    <p>Years of experience</p>
+                </div>
+
+                <div class="col-12 col-md-6 col-lg-3 text-white">
+                    <i class="bi bi-gear-fill fs-2 text-primary"></i>
+                    <h1>10<span class="text-secondary">+</span></h1>
+                    <p>Completed Projects</p>
+                </div>
+
+                <div class="col-12 col-md-6 col-lg-3 text-white">
+                    <i class="bi bi-youtube fs-2 text-primary"></i>
+                    <h1>3.25k<span class="text-secondary">+</span></h1>
+                    <p>Subscribers on YouTube</p>
+                </div>
+
+                <div class="col-12 col-md-6 col-lg-3 text-white">
+                    <i class="bi bi-joystick fs-2 text-primary"></i>
+                    <h1>1M<span class="text-secondary">+</span></h1>
+                    <p>Game Visits on Roblox</p>
+                </div>
+
+
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="p-3">
+        <div class="container-sm p-3 bg-dark rounded scroll-animate border-1 border-secondary" style="border: solid">
+            <h2 class="text-center text-white">Skills</h2>
+            <p class="text-secondary text-center">These are the list of both my <span class="text-white">technical and practical expertise.</span></p>
+
+            <div class="row g-4 p-2">
+                <div class="col-md-6 col-lg-4">
+                    <div class="p-4 bg-dark-subtle rounded h-100 card-hover">
+                        <i class="bi bi-code-slash fs-2 text-primary"></i>
+                        <h4 class="text-primary mt-3">Front-end Web Development</h4>
+                        <p class="text-white">I have made many front-end development projects.</p>
+                        <ul class="text-white text-start">
+                            <li>HTML5, CSS3, JavaScript</li>
+                            <li>Vite, Svelte, Flutter</li>
+                            <li>Bootstrap, Tailwind</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="p-4 bg-dark-subtle rounded h-100 card-hover">
+                        <i class="bi bi-server fs-2 text-primary"></i>
+                        <h4 class="text-primary mt-3">Backend Development</h4>
+                        <p class="text-white">I have experience with building secure and scalable server-side applications.</p>
+                        <ul class="text-white text-start">
+                            <li>Node.js, Deno</li>
+                            <li>PostgreSQL, Supabase</li>
+                            <li>RESTful APIs, Vercel</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="p-4 bg-dark-subtle rounded h-100 card-hover">
+                        <i class="bi bi-controller fs-2 text-primary"></i>
+                        <h4 class="text-primary mt-3">Game Development</h4>
+                        <p class="text-white">I have shown skill in creating engaging games and interactive experiences.</p>
+                        <ul class="text-white text-start">
+                            <li>Roblox Studio</li>
+                            <li>Scratch</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="p-4 bg-dark-subtle rounded h-100 card-hover">
+                        <i class="bi bi-controller fs-2 text-danger"></i>
+                        <h4 class="text-danger mt-3">Teamwork</h4>
+                        <p class="text-white">I have shown skill in creating engaging games and interactive experiences.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-</body>
 
+    <section id="experience" class="p-3">
+        <div class="container-sm p-3 bg-dark rounded scroll-animate border-1 border-secondary" style="border: solid">
+            <h2 class="text-center text-white">Experience</h2>
+            <p class="text-secondary text-center m-2">These are the teams that I have been involved in over my <span class="text-white">6+ years of experience.</span></p>
+
+            <div class="row p-2">
+                <ul class="col-lg-4 col-12 nav nav-tabs border-0 gap-3 flex-column justify-content-center mb-3"
+                    id="experienceTab" role="tablist" aria-orientation="vertical">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active button1-custom flex gap-2 w-100"
+                            style="display: flex !important;" id="phantom-tab" data-bs-toggle="tab"
+                            data-bs-target="#phantom-tab-pane" type="button" role="tab" aria-controls="phantom-tab-pane"
+                            aria-selected="true">
+
+                            <img class="d-inline p-0 me-1" style="width: 75px; aspect-ratio: 1;"
+                                src="cool-images/ph4ntomx.jpg" />
+
+                            <div class="w-100 text-start p-0 ps-1 d-flex flex-column justify-content-between">
+                                <h3 class="text-primary fs-4 m-0">Ph4ntomX</h3>
+                                <p class="text-secondary fs-5 m-0">2019 - Present</p>
+                            </div>
+                        </button>
+                    </li>
+
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link button1-custom flex gap-2 w-100" style="display: flex !important;"
+                            id="asl-tab" data-bs-toggle="tab" data-bs-target="#asl-tab-pane" type="button" role="tab"
+                            aria-controls="asl-tab-pane" aria-selected="false">
+
+                            <img class="d-inline p-0 me-1" style="width: 75px; aspect-ratio: 1;"
+                                src="cool-images/asl.png" />
+                            <div class="w-100 text-start p-0 ps-1 d-flex flex-column justify-content-between">
+                                <h3 class="text-primary fs-4 m-0">ASL Games</h3>
+                                <p class="text-secondary fs-5 m-0">2021 - Present</p>
+                            </div>
+                        </button>
+                    </li>
+
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link button1-custom flex gap-2 w-100" style="display: flex !important;"
+                            id="bvf-tab" data-bs-toggle="tab" data-bs-target="#bvf-tab-pane" type="button" role="tab"
+                            aria-controls="bvf-tab-pane" aria-selected="false">
+
+                            <img class="d-inline p-0 me-1" style="width: 75px; aspect-ratio: 1;"
+                                src="cool-images/bvf.png" />
+                            <div class="w-100 text-start p-0 ps-1 d-flex flex-column justify-content-between">
+                                <h3 class="text-primary fs-4 m-0">Big Victor Fans</h3>
+                                <p class="text-secondary fs-5 m-0">2022 - Present</p>
+                            </div>
+                        </button>
+                    </li>
+
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link button1-custom flex gap-2 w-100" style="display: flex !important;"
+                            id="synco-tab" data-bs-toggle="tab" data-bs-target="#synco-tab-pane" type="button"
+                            role="tab" aria-controls="synco-tab-pane" aria-selected="false">
+
+                            <img class="d-inline p-0 me-1" style="width: 75px; aspect-ratio: 1;"
+                                src="cool-images/synco.png" />
+                            <div class="w-100 text-start p-0 ps-1 d-flex flex-column justify-content-between">
+                                <h3 class="text-primary fs-4 m-0">Syncos</h3>
+                                <p class="text-secondary fs-5 m-0">2021 - 2025</p>
+                            </div>
+                        </button>
+                    </li>
+                </ul>
+
+                <div class="col-lg-8 col-12 tab-content px-2 px-lg-4 text-white" id="experienceTabContent">
+                    <div class="tab-pane fade active show" id="phantom-tab-pane" role="tabpanel" aria-labelledby="phantom-tab"
+                        tabindex="0">
+                        <h3 class="text-primary">Content Creator</h3>
+                        <p class="fs-5">Creating content primarily on Roblox and Roblox Studio ranging from tutorials to showcases, and creating interesting content that strikes the curiosity of viewers.</p>
+                        <ul class="text-start d-flex flex-column gap-2">
+                            <li>Learned various editing software ranging from Adobe Premiere Pro to Wondershare Filmora X over the years.</li>
+                            <li>Using my programming knowledge to give the best tutorials on how to use Roblox Studio and make games.</li>
+                        </ul>
+                    </div>
+
+                    <div class="tab-pane fade" id="asl-tab-pane" role="tabpanel" aria-labelledby="asl-tab"
+                        tabindex="0">
+                        <h3 class="text-primary">Founder and Lead Game Mechanics Engineer</h3>
+                        <p class="fs-5">ASL Games is a roblox game development community, formerly named Ph4ntoms Developments creating games that have the best one-time experience for players.</p>
+
+                        <ul class="text-start d-flex flex-column gap-2">
+                            <li>Managing the workload of up to 4 people working on the games</li>
+                            <li>Finding and recruiting developers that can help in aspects of development such as building and UI design</li>
+                            <li>Bringing game mechanic ideas to life with scripts coded in Luau Roblox</li>
+                            <li>Ensuring the quality of game mechanics through testing and feedback</li>
+                        </ul>
+                    </div>
+
+                    <div class="tab-pane fade" id="bvf-tab-pane" role="tabpanel" aria-labelledby="bvf-tab"
+                        tabindex="0">
+                        <h3 class="text-primary">Founder and Software Engineer</h3>
+                        <p class="fs-5">Big Victor Fans is a team dedicated to raising awareness and educating people. We started from creating fun games like Space Debris in 2022 and recently in 2024 creating a website that brings awareness to the endangered animals that exist in Malaysia such as the Malayan Tiger.</p>
+
+                        <ul class="text-start d-flex flex-column gap-2">
+                            <li>Giving different tasks and duties to the team</li>
+                            <li>Helping to find and recognize big problems that exist in our country</li>
+                            <li>Finding innovative solutions that are engaging and use modern technology such as AR and AI</li>
+                            <li>Earned a finalist spot and a third place spot in Coolest Projects Malaysia 2022 and 2024</li>
+                        </ul>
+                    </div>
+
+                    <div class="tab-pane fade" id="synco-tab-pane" role="tabpanel" aria-labelledby="synco-tab"
+                        tabindex="0">
+                        <h3 class="text-primary">Chief Technology Officer</h3>
+                        <p class="fs-5">Syncos is a company that aims to provide solutions to make the world better by putting technology as the foundation. We introduced Synco Virtue, a revolutionary mobile application aimed to help teenagers and young adults develop stronger moral values and sustainable practices with gamification.</p>
+
+                        <ul class="text-start d-flex flex-column gap-2">
+                            <li>Brainstormed ideas that can help fulfill the company's mission</li>
+                            <li>Helped develop the technological architecture that is both scalable and easy to work with</li>
+                            <li>Worked with the CMO to create marketing strategies that align with our technological goals</li>
+                            <li>Focused on product development and user experience</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="portfolio" class="p-3">
+        <div class="container-sm p-3 bg-dark rounded scroll-animate border-1 border-secondary" style="border: solid">
+            <h2 class="text-center text-white">Portfolio</h2>
+            <p class="text-secondary text-center">These are some of <span class="text-white">my best work</span> that I have worked on in these past few years.</p>
+
+            <div class="row g-2 mt-2">
+                <div class="col-xl-4">
+                    <div class="project-cards-container">
+                        <div class="project-card bg-dark-subtle" data-project="0">
+                            <div>
+                                <h4 class="text-primary">Space Debris Game</h4>
+                                <p class="text-white mb-4">An educational Roblox game about space debris and its impact on space exploration.</p>
+                            </div>
+
+                            <div class="review-card">
+                                <div class="d-flex gap-3 align-items-center mb-3">
+                                    <img src="https://placehold.co/50" alt="Client" class="rounded-circle shadow-sm">
+                                    <div>
+                                        <h5 class="text-primary m-0">John Smith</h5>
+                                        <p class="text-secondary m-0">Game Tester</p>
+                                    </div>
+                                </div>
+                                <p class="text-white m-0 fst-italic">"Innovative approach to teaching about space debris. The gameplay is engaging and educational."</p>
+                            </div>
+                        </div>
+                        <div class="project-card bg-dark-subtle" data-project="1">
+                            <div>
+                                <h4 class="text-primary">Endangered Animals Malaysia</h4>
+                                <p class="text-white mb-4">A website raising awareness about Malaysia's endangered species, featuring interactive AR experiences.</p>
+                            </div>
+                            <div class="review-card">
+                                <div class="d-flex gap-3 align-items-center mb-3">
+                                    <img src="https://placehold.co/50" alt="Client" class="rounded-circle shadow-sm">
+                                    <div>
+                                        <h5 class="text-primary m-0">Sarah Lee</h5>
+                                        <p class="text-secondary m-0">Environmental Activist</p>
+                                    </div>
+                                </div>
+                                <p class="text-white m-0 fst-italic">"A beautiful and informative platform that effectively highlights the importance of wildlife conservation."</p>
+                            </div>
+                        </div>
+                        <div class="project-card bg-dark-subtle" data-project="2">
+                            <div>
+                                <h4 class="text-primary">Synco Virtue</h4>
+                                <p class="text-white mb-4">A gamified mobile app helping young adults develop stronger moral values and sustainable practices.</p>
+                            </div>
+                            <div class="review-card">
+                                <div class="d-flex gap-3 align-items-center mb-3">
+                                    <img src="https://placehold.co/50" alt="Client" class="rounded-circle shadow-sm">
+                                    <div>
+                                        <h5 class="text-primary m-0">Mike Chen</h5>
+                                        <p class="text-secondary m-0">Early Adopter</p>
+                                    </div>
+                                </div>
+                                <p class="text-white m-0 fst-italic">"The gamification elements make learning about values and sustainability fun and engaging."</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-8">
+                    <div id="portfolioCarousel" class="carousel slide" data-bs-ride="false">
+                        <div class="carousel-inner rounded">
+                            <div class="carousel-item active" data-project="0">
+                                <img src="https://placehold.co/1200x600" class="d-block w-100 h-auto" alt="Space Debris Game">
+                            </div>
+                            <div class="carousel-item" data-project="1">
+                                <img src="https://placehold.co/1200x600" class="d-block w-100 h-auto" alt="Endangered Animals Malaysia">
+                            </div>
+                            <div class="carousel-item" data-project="2">
+                                <img src="https://placehold.co/1200x600" class="d-block w-100 h-auto" alt="Synco Virtue">
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#portfolioCarousel" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#portfolioCarousel" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contacts" class="p-3">
+        <div class="container-sm p-3 bg-dark rounded scroll-animate">
+            <h2 class="text-center text-white">Contacts</h2>
+            <p class="text-secondary text-center">I am most active on Discord and Telegram. </p>
+
+            <div class="row g-4 p-2">
+                <div class="col-md-6 col-lg-4">
+                    <div class="p-4 bg-dark-subtle rounded h-100 card-hover hover2 d-flex flex-column align-items-center">
+                        <i class="bi bi-envelope fs-2 text-primary"></i>
+                        <h4 class="text-primary mt-3">Email</h4>
+                        <p class="text-white">supremeguy.business@gmail.com</p>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="p-4 bg-dark-subtle rounded h-100 card-hover hover2 d-flex flex-column align-items-center">
+                        <i class="bi bi-discord fs-2 text-primary"></i>
+                        <h4 class="text-primary mt-3">Discord</h4>
+                        <p class="text-white">@hamzahamzahamza</p>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="p-4 bg-dark-subtle rounded h-100 card-hover hover2 d-flex flex-column align-items-center">
+                        <i class="bi bi-telegram fs-2 text-primary"></i>
+                        <h4 class="text-primary mt-3">Telegram</h4>
+                        <p class="text-white">@hamazhamazhamaz</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="footer mt-5">
+        <div class="container-sm">
+            <hr class="border-primary opacity-100">
+            <div class="d-flex flex-column justify-content-between align-items-center py-4">
+                <a class="navbar-brand fw-bold text-white" href="#">tengkuhamza.com</a>
+                
+                <div class="d-flex align-items-center gap-3">
+                    <a href="https://twitter.com/@iiSupremeGuy" target="_blank">
+                        <i class="bi bi-twitter fs-4 text-primary link-opacity-50-hover"></i>
+                    </a>
+                    <a href="https://www.youtube.com/@RobloxPh4ntomX" target="_blank">
+                        <i class="bi bi-youtube fs-4 text-primary link-opacity-50-hover"></i>
+                    </a>
+                    <a href="https://github.com/Ph4ntomX" target="_blank">
+                        <i class="bi bi-github fs-4 text-primary link-opacity-50-hover"></i>
+                    </a>
+                </div>
+
+                <ul class="navbar-nav navbar-dark flex-row gap-4 text-center">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#experience">Experience</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#skills">Skills</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contacts">Contacts</a>
+                    </li>
+                </ul>                
+            </div>
+        </div>
+    </section>
+</body>
 </html>
